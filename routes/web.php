@@ -12,9 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.index');
 });
+Route::get('/about', 'PagesController@about')->name('about');
 
+Route::get('/contact', function () {
+    return view('pages.contact');
+})->name('contact');
+
+Route::post('/contact', function () {
+    return view('pages.thankyou');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
