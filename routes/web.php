@@ -16,9 +16,11 @@ Route::get('/', function () {
 });
 Route::get('/about', 'PagesController@about')->name('about');
 
-Route::get('/contact', function () {
-    return view('pages.contact');
-})->name('contact');
+Route::get('/contact', 'PagesController@contact')->name('contact');
+
+Route::get('/login', 'passwords@login')->name('login');
+
+Route::get('/register', 'passwords@register')->name('register');
 
 Route::post('/contact', function () {
     return view('pages.thankyou');
