@@ -16,11 +16,11 @@ class DeleteTest extends TestCase
      */
     public function testDelete()
     {
-       // $del =User:: find(35);
+       $User = User::find(51);
         //$del->delete();
         //$this->assertDatabaseMissing('users',["name"=>$del->name]);
-        DB::table('users')->where('id', '>', 86)->delete();
+        DB::table('users')->where('id', '>', 50)->delete();
         $user = User::all();
-        $this->assertDatabaseMissing('users',['id' => '87']);
+       $this->assertDatabaseMissing('users',['id' => '51']);
     }
 }
