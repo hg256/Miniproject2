@@ -20,4 +20,5 @@ class CarInsertTest extends TestCase
         $user = factory(\App\cars::class)->create();
         $this->assertDatabaseHas('cars', ['make' =>$user->make]);
     }
+
 }
