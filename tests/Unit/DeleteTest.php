@@ -1,7 +1,7 @@
 <?php
 
 namespace Tests\Unit;
-
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -16,8 +16,11 @@ class DeleteTest extends TestCase
      */
     public function testDelete()
     {
-        $del =User:: find(22);
-        $del->delete();
-        $this->assertDatabaseMissing('users',["name"=>$del->name]);
+       // $del =User:: find(22);
+        //$del->delete();
+        //$this->assertDatabaseMissing('users',["name"=>$del->name]);
+        DB::table('users')->where('id', '>', 50)->delete();
+        $user = User::all();
+        $this->assertDatabaseMissing('users',['id' => '51']);
     }
 }
